@@ -1,0 +1,16 @@
+{
+    "replace": true,
+    "slots": ["chest/base"],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 16
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/"],
+            "moduleKey": "armor/chest/base/heavy",
+            "moduleVariant": "heavy_chest_base/"
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+  "replace": true,
+  "type": "tetra:basic_major_module",
+  "slots": ["head/base"],
+  "improvements": [],
+  "variants": [
+    {
+      "materials": [
+        "tetra:wood/",
+        "tetra:gem/",
+        "tetra:metal/",
+        "tetra:bone/",
+        "tetra:fabric/",
+        "tetra:fibre/",
+        "tetra:skin/",
+        "tetra:scale/"
+      ],
+      "key": "vanilla_head_base/",
+      "aspects": {
+        "armor": 2,
+        "armor_head": 2,
+        "wearable": 2,
+        "breakable": 2
+      },
+      "durability": 111,
+      "integrity": 1,
+      "extract": {
+        "primaryAttributes": {
+          "minecraft:generic.armor": 0.71193177530125,
+          "minecraft:generic.armor_toughness": 1.1861336821715174
+        },
+        "secondaryAttributes": {
+          "minecraft:generic.armor": -0.43847953510603477,
+          "minecraft:generic.armor_toughness":  -1.4195869286307257
+        },
+        "tertiaryAttributes": {
+          "minecraft:generic.armor": 0.035521118965560934,
+          "minecraft:generic.armor_toughness":   0.15458730597972364
+        },
+        "durability": 0.16,
+        "integrity": 1,
+        "magicCapacity": 1,
+        "glyph": {
+          "textureX": 16
+        },
+        "availableTextures": ["base"],
+        "models": [
+          {
+            "type": "gecko",
+            "location": "geotetraarmor:item/armor/vanilla/"
+          },
+          {
+            "location": "geotetraarmor:item/module/armor/head/"
+          }
+        ]
+      }
+    }
+  ]
+}

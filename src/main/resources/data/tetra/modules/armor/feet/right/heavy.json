@@ -1,0 +1,54 @@
+{
+  "replace": true,
+  "type": "tetra:basic_major_module",
+  "slots": ["feet/right"],
+  "improvements": [],
+  "variants": [
+    {
+      "materials": [ "tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/" ],
+      "key": "heavy_feet_right/",
+      "aspects": {
+        "breakable": 2
+      },
+      "durability": 7,
+      "integrity": 1,
+      "extract": {
+        "primaryAttributes": {
+          "minecraft:generic.armor": 0.5,
+          "minecraft:generic.armor_toughness": 0.5
+        },
+        "secondaryAttributes": {
+          "minecraft:generic.armor": 0.5,
+          "minecraft:generic.armor_toughness": 0.5
+        },
+        "tertiaryAttributes": {
+          "minecraft:generic.armor": 0.5,
+          "minecraft:generic.armor_toughness": 0.5
+        },
+        "primaryEffects":{},
+        "secondaryEffects": {},
+        "tertiaryEffects": {},
+        "durability": 0.3,
+        "integrity": 1,
+        "magicCapacity": 1,
+        "glyph": {
+          "textureX": 16
+        },
+        "availableTextures": [ "right" ],
+        "models": [
+          {
+            "type": "gecko",
+            "location": "geotetraarmor:item/armor/vanilla/"
+          },
+          {
+            "type": "gecko",
+            "location": "geotetraarmor:item/armor/heavy/"
+          },
+          {
+            "location": "geotetraarmor:item/module/armor/feet/"
+          }
+        ]
+      }
+    }
+  ]
+}

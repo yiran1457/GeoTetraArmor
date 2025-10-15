@@ -1,0 +1,18 @@
+{
+    "replace": true,
+    "slots": [
+        "head/base"
+    ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 16
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/"],
+            "moduleKey": "armor/head/base/heavy",
+            "moduleVariant": "heavy_head_base/"
+        }
+    ]
+}

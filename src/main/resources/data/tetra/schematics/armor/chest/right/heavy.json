@@ -1,0 +1,16 @@
+{
+    "replace": true,
+    "slots": ["chest/right"],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 16
+    },
+    "outcomes": [
+        {
+            "materials": ["tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/"],
+            "moduleKey": "armor/chest/right/heavy",
+            "moduleVariant": "heavy_chest_right/"
+        }
+    ]
+}

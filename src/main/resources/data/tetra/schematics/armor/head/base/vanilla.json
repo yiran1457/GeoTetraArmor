@@ -1,0 +1,27 @@
+{
+    "replace": true,
+    "slots": [
+        "head/base"
+    ],
+    "materialSlotCount": 1,
+    "displayType": "major",
+    "glyph": {
+        "textureX": 16
+    },
+    "outcomes": [
+        {
+            "materials": [
+                "tetra:wood/",
+                "tetra:gem/",
+                "tetra:metal/",
+                "tetra:bone/",
+                "tetra:fabric/",
+                "tetra:fibre/",
+                "tetra:skin/",
+                "tetra:scale/"
+            ],
+            "moduleKey": "armor/head/base/vanilla",
+            "moduleVariant": "vanilla_head_base/"
+        }
+    ]
+}
