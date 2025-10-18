@@ -2,12 +2,17 @@
   "replace": true,
   "type": "tetra:basic_major_module",
   "slots": ["feet/right"],
-  "improvements": [],
+  "improvements": [
+    "tetra:armor/shared/"
+  ],
   "variants": [
     {
       "materials": [ "tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/" ],
       "key": "heavy_feet_right/",
       "aspects": {
+        "armor": 2,
+        "armor_feet": 2,
+        "wearable": 2,
         "breakable": 2
       },
       "durability": 7,

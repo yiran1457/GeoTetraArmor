@@ -1,0 +1,57 @@
+[
+  {
+    "predicate": {
+      "items": [ "minecraft:leather_leggings" ]
+    },
+    "item": "geotetraarmor:legs",
+    "modules": {
+      "legs/belt": [ "armor/legs/belt/vanilla", "vanilla_legs_belt/leather" ],
+      "legs/left": [ "armor/legs/left/vanilla", "vanilla_legs_left/leather" ],
+      "legs/right": [ "armor/legs/right/vanilla", "vanilla_legs_right/leather" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:iron_leggings" ]
+    },
+    "item": "geotetraarmor:legs",
+    "modules": {
+      "legs/belt": [ "armor/legs/belt/vanilla", "vanilla_legs_belt/iron" ],
+      "legs/left": [ "armor/legs/left/vanilla", "vanilla_legs_left/iron" ],
+      "legs/right": [ "armor/legs/right/vanilla", "vanilla_legs_right/iron" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:golden_leggings" ]
+    },
+    "item": "geotetraarmor:legs",
+    "modules": {
+      "legs/belt": [ "armor/legs/belt/vanilla", "vanilla_legs_belt/gold" ],
+      "legs/left": [ "armor/legs/left/vanilla", "vanilla_legs_left/gold" ],
+      "legs/right": [ "armor/legs/right/vanilla", "vanilla_legs_right/gold" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:diamond_leggings" ]
+    },
+    "item": "geotetraarmor:legs",
+    "modules": {
+      "legs/belt": [ "armor/legs/belt/vanilla", "vanilla_legs_belt/diamond" ],
+      "legs/left": [ "armor/legs/left/vanilla", "vanilla_legs_left/diamond" ],
+      "legs/right": [ "armor/legs/right/vanilla", "vanilla_legs_right/diamond" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:netherite_leggings" ]
+    },
+    "item": "geotetraarmor:legs",
+    "modules": {
+      "legs/belt": [ "armor/legs/belt/vanilla", "vanilla_legs_belt/netherite" ],
+      "legs/left": [ "armor/legs/left/vanilla", "vanilla_legs_left/netherite" ],
+      "legs/right": [ "armor/legs/right/vanilla", "vanilla_legs_right/netherite" ]
+    }
+  }
+]

@@ -18,11 +18,11 @@
 				{
 					"name": "armorRightArm",
 					"parent": "bipedRightArm",
-					"pivot": [5, 22, 0],
+					"pivot": [-5, 22, 0],
 					"cubes": [
 						{"origin": [-8.3125, 22.9375, -2.5], "size": [3, 5, 5], "inflate": 0.25, "pivot": [-7.3125, 23.9375, -1.5], "rotation": [0, 0, -20], "uv": [40, 54], "mirror": true},
 						{"origin": [-10.25, 21.1875, -2.5], "size": [3, 5, 5], "inflate": 0.1875, "pivot": [-9.25, 22.1875, -1.5], "rotation": [0, 0, -35], "uv": [40, 54], "mirror": true},
-						{"origin": [-10.25, 18.9375, -2.5], "size": [3, 5, 5], "inflate": 0.125, "pivot": [-9.25, 19.9375, -1.5], "rotation": [0, 0, -60], "uv": [40, 54], "mirror": true}
+						{"origin": [-11.79904, 18.62051, -2.5], "size": [3, 5, 5], "inflate": 0.125, "pivot": [-10.29904, 21.12051, 0], "rotation": [0, 0, -60], "uv": [40, 54], "mirror": true}
 					]
 				},
 				{

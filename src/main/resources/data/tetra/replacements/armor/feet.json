@@ -1,0 +1,52 @@
+[
+  {
+    "predicate": {
+      "items": [ "minecraft:leather_boots" ]
+    },
+    "item": "geotetraarmor:feet",
+    "modules": {
+      "feet/left": [ "armor/feet/left/vanilla", "vanilla_feet_left/leather" ],
+      "feet/right": [ "armor/feet/right/vanilla", "vanilla_feet_right/leather" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:iron_boots" ]
+    },
+    "item": "geotetraarmor:feet",
+    "modules": {
+      "feet/left": [ "armor/feet/left/vanilla", "vanilla_feet_left/iron" ],
+      "feet/right": [ "armor/feet/right/vanilla", "vanilla_feet_right/iron" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:golden_boots" ]
+    },
+    "item": "geotetraarmor:feet",
+    "modules": {
+      "feet/left": [ "armor/feet/left/vanilla", "vanilla_feet_left/gold" ],
+      "feet/right": [ "armor/feet/right/vanilla", "vanilla_feet_right/gold" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:diamond_boots" ]
+    },
+    "item": "geotetraarmor:feet",
+    "modules": {
+      "feet/left": [ "armor/feet/left/vanilla", "vanilla_feet_left/diamond" ],
+      "feet/right": [ "armor/feet/right/vanilla", "vanilla_feet_right/diamond" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:netherite_boots" ]
+    },
+    "item": "geotetraarmor:feet",
+    "modules": {
+      "feet/left": [ "armor/feet/left/vanilla", "vanilla_feet_left/netherite" ],
+      "feet/right": [ "armor/feet/right/vanilla", "vanilla_feet_right/netherite" ]
+    }
+  }
+]

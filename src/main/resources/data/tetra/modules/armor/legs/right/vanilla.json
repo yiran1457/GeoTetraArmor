@@ -2,7 +2,9 @@
   "replace": true,
   "type": "tetra:basic_major_module",
   "slots": ["legs/right"],
-  "improvements": [],
+  "improvements": [
+    "tetra:armor/shared/"
+  ],
   "variants": [
     {
       "materials": [
@@ -17,13 +19,13 @@
       ],
       "key": "vanilla_legs_right/",
       "aspects": {
+        "armor": 2,
+        "armor_legs": 2,
+        "wearable": 2,
         "breakable": 2
       },
       "durability": 7,
       "integrity": 1,
-      "attributes": {
-
-      },
       "extract": {
         "primaryAttributes": {
           "minecraft:generic.armor": 0.5,

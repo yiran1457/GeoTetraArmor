@@ -1,0 +1,47 @@
+[
+  {
+    "predicate": {
+      "items": [ "minecraft:leather_helmet" ]
+    },
+    "item": "geotetraarmor:head",
+    "modules": {
+      "head/base": [ "armor/head/base/vanilla", "vanilla_head_base/leather" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:iron_helmet" ]
+    },
+    "item": "geotetraarmor:head",
+    "modules": {
+      "head/base": [ "armor/head/base/vanilla", "vanilla_head_base/iron" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:golden_helmet" ]
+    },
+    "item": "geotetraarmor:head",
+    "modules": {
+      "head/base": [ "armor/head/base/vanilla", "vanilla_head_base/gold" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:diamond_helmet" ]
+    },
+    "item": "geotetraarmor:head",
+    "modules": {
+      "head/base": [ "armor/head/base/vanilla", "vanilla_head_base/diamond" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:netherite_helmet" ]
+    },
+    "item": "geotetraarmor:head",
+    "modules": {
+      "head/base": [ "armor/head/base/vanilla", "vanilla_head_base/netherite" ]
+    }
+  }
+]

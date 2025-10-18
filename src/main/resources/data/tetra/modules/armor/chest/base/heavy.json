@@ -4,7 +4,9 @@
   "slots": [
     "chest/base"
   ],
-  "improvements": [],
+  "improvements": [
+    "tetra:armor/shared/"
+  ],
   "variants": [
     {
       "materials": [
@@ -15,6 +17,9 @@
       ],
       "key": "heavy_chest_base/",
       "aspects": {
+        "armor": 2,
+        "armor_chest": 2,
+        "wearable": 2,
         "breakable": 2
       },
       "durability": 7,
@@ -41,7 +46,9 @@
         "glyph": {
           "textureX": 16
         },
-        "availableTextures": ["base"],
+        "availableTextures": [
+          "base"
+        ],
         "models": [
           {
             "type": "gecko",

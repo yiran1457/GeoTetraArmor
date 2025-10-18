@@ -2,12 +2,17 @@
   "replace": true,
   "type": "tetra:basic_major_module",
   "slots": ["chest/left"],
-  "improvements": [],
+  "improvements": [
+    "tetra:armor/shared/"
+  ],
   "variants": [
     {
       "materials": [ "tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/" ],
       "key": "heavy_chest_left/",
       "aspects": {
+        "armor": 2,
+        "armor_chest": 2,
+        "wearable": 2,
         "breakable": 2
       },
       "durability": 7,

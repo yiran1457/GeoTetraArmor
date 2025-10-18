@@ -1,0 +1,57 @@
+[
+  {
+    "predicate": {
+      "items": [ "minecraft:leather_chestplate" ]
+    },
+    "item": "geotetraarmor:chest",
+    "modules": {
+      "chest/left": [ "armor/chest/left/vanilla", "vanilla_chest_left/leather" ],
+      "chest/right": [ "armor/chest/right/vanilla", "vanilla_chest_right/leather" ],
+      "chest/base": [ "armor/chest/base/vanilla", "vanilla_chest_base/leather" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:iron_chestplate" ]
+    },
+    "item": "geotetraarmor:chest",
+    "modules": {
+      "chest/left": [ "armor/chest/left/vanilla", "vanilla_chest_left/iron" ],
+      "chest/right": [ "armor/chest/right/vanilla", "vanilla_chest_right/iron" ],
+      "chest/base": [ "armor/chest/base/vanilla", "vanilla_chest_base/iron" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:golden_chestplate" ]
+    },
+    "item": "geotetraarmor:chest",
+    "modules": {
+      "chest/left": [ "armor/chest/left/vanilla", "vanilla_chest_left/gold" ],
+      "chest/right": [ "armor/chest/right/vanilla", "vanilla_chest_right/gold" ],
+      "chest/base": [ "armor/chest/base/vanilla", "vanilla_chest_base/gold" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:diamond_chestplate" ]
+    },
+    "item": "geotetraarmor:chest",
+    "modules": {
+      "chest/left": [ "armor/chest/left/vanilla", "vanilla_chest_left/diamond" ],
+      "chest/right": [ "armor/chest/right/vanilla", "vanilla_chest_right/diamond" ],
+      "chest/base": [ "armor/chest/base/vanilla", "vanilla_chest_base/diamond" ]
+    }
+  },
+  {
+    "predicate": {
+      "items": [ "minecraft:netherite_chestplate" ]
+    },
+    "item": "geotetraarmor:chest",
+    "modules": {
+      "chest/left": [ "armor/chest/left/vanilla", "vanilla_chest_left/netherite" ],
+      "chest/right": [ "armor/chest/right/vanilla", "vanilla_chest_right/netherite" ],
+      "chest/base": [ "armor/chest/base/vanilla", "vanilla_chest_base/netherite" ]
+    }
+  }
+]

@@ -2,12 +2,16 @@ package ovo.yiran.geotetraarmor;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,6 +23,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 import ovo.yiran.geotetraarmor.items.*;
+import se.mickelus.tetra.items.modular.IModularItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +38,7 @@ public class GeoTetraArmor {
     public static final RegistryObject<Item> HEAD = ITEMS.register("head", ModularHeadItem::new);
     public static final RegistryObject<Item> FEET = ITEMS.register("feet", ModularFeetItem::new);
     public static final RegistryObject<Item> CHEST = ITEMS.register("chest", ModularChestItem::new);
-    public static final RegistryObject<Item> LEGS = ITEMS.register("legs", ModularLegsItem::new);
+    public static final RegistryObject<Item> LEGS = ITEMS.register("legs", ModularLegsItem::new);/*
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> HEAD.get().getDefaultInstance())
@@ -42,21 +47,22 @@ public class GeoTetraArmor {
                 output.accept(CHEST.get());
                 output.accept(LEGS.get());
                 output.accept(FEET.get());
-            }).build());
+            }).build());*/
 
     public GeoTetraArmor() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventBus);
-        CREATIVE_MODE_TABS.register(modEventBus);
-        modEventBus.addListener(GeoTetraArmor::onCommonSetup);
+       // CREATIVE_MODE_TABS.register(modEventBus);
+        modEventBus.addListener(this::onBuildCreativeModeTab);
     }
 
-    public static Map<Block, Block> wrappers = new HashMap<>();
+    public void onBuildCreativeModeTab(BuildCreativeModeTabContentsEvent event){
 
-    public static void onCommonSetup(FMLCommonSetupEvent event) {
-        wrappers.put(Blocks.END_STONE,Blocks.ACACIA_LOG);
-        wrappers.put(Blocks.STONE,Blocks.DIAMOND_ORE);
-        wrappers.put(Blocks.WATER,Blocks.LAVA);
-        //wrappers.put(Blocks.FURNACE,Blocks.BLAST_FURNACE);
+        if (event.getTabKey() == ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation("tetra", "default"))) {
+            event.accept(HEAD.get().getDefaultInstance());
+            event.accept(CHEST.get().getDefaultInstance());
+            event.accept(LEGS.get().getDefaultInstance());
+            event.accept(FEET.get().getDefaultInstance());
+        }
     }
 }
