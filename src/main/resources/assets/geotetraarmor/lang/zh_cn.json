@@ -5,9 +5,11 @@
   "tetra.slot.chest/base": "底甲",
   "tetra.slot.chest/left": "左肩甲",
   "tetra.slot.chest/right": "右肩甲",
+  "tetra.slot.legs/extra": "附件",
   "tetra.slot.legs/left": "左腿甲",
   "tetra.slot.legs/right": "右腿甲",
   "tetra.slot.legs/belt": "腰带",
+  "tetra.slot.feet/extra": "附件",
   "tetra.slot.feet/left": "左鞋子",
   "tetra.slot.feet/right": "右鞋子",
 

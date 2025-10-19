@@ -3,11 +3,15 @@ package ovo.yiran.geotetraarmor.items;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.ItemStack;
 import ovo.yiran.geotetraarmor.model.ModularGeoArmorRenderer;
@@ -41,6 +45,28 @@ public class ModularArmorItem extends ItemModularHandheld implements GeoItem, Eq
         this.slot = slot;
         this.rendererCache = CacheBuilder.newBuilder().maximumSize(1000L).expireAfterWrite(5L, TimeUnit.MINUTES).build();
         SchematicRegistry.instance.registerSchematic(new RepairSchematic(this, repairName));
+    }
+
+    @Override
+    public boolean hurtEnemy(ItemStack itemStack, LivingEntity target, LivingEntity attacker) {
+        return false;
+    }
+
+    public void applyDamage(int amount, ItemStack itemStack, @Nullable LivingEntity responsibleEntity,int slot) {
+        int damage = itemStack.getDamageValue();
+        int maxDamage = itemStack.getMaxDamage();
+        if (!this.isBroken(damage, maxDamage)) {
+            int reducedAmount = this.getReducedDamage(amount, itemStack, responsibleEntity);
+            itemStack.hurtAndBreak(amount, responsibleEntity, (player) -> player.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR,slot)));
+            //打磨
+            tickProgression(responsibleEntity,itemStack,reducedAmount);
+            if (this.isBroken(damage + reducedAmount, maxDamage) && !responsibleEntity.level().isClientSide) {
+                itemStack.hurtAndBreak(amount, responsibleEntity, (player) -> player.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR,slot)));
+                //不知道为什么，没声音
+                responsibleEntity.playSound(SoundEvents.SHIELD_BREAK, 1.0F, 1.0F);
+            }
+        }
+
     }
 
     @Override

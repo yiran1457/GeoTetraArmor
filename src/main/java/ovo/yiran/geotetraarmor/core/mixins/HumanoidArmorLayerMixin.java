@@ -58,10 +58,10 @@ public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends 
                     boolean flag = this.usesInnerModel(slot);
                     this.renderModel(poseStack, buffer, packedLight, armoritem, renderer, flag, 1, 1, 1,renderer.getGeoModel().getTextureResource(armoritem) );
 
-
+/*
                     if (itemstack.hasFoil()) {
                         this.renderGlint(poseStack, buffer, packedLight, (A) renderer);
-                    }
+                    }*/
                 });
                 /*
                 armoritem.getGecModels(itemstack, livingEntity).forEach(moduleModel -> {

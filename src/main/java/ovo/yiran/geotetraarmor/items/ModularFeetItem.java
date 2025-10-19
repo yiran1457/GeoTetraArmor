@@ -9,7 +9,7 @@ public class ModularFeetItem extends ModularArmorItem {
     public ModularFeetItem() {
         super(EquipmentSlot.FEET, "modular_feet");
         majorModuleKeys = new String[]{"feet/left", "feet/right"};
-        minorModuleKeys = new String[0];
+        minorModuleKeys = new String[]{"feet/extra"};
         requiredModules = new String[]{"feet/left", "feet/right"};
     }
 
@@ -26,4 +26,8 @@ public class ModularFeetItem extends ModularArmorItem {
         return new GuiModuleOffsets(-14, 18, 4, 18);
     }
 
+    @Override
+    public GuiModuleOffsets getMinorGuiOffsets(ItemStack itemStack) {
+        return new GuiModuleOffsets(-14,0);
+    }
 }

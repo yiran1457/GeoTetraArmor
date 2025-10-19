@@ -9,7 +9,7 @@ public class ModularLegsItem extends ModularArmorItem {
     public ModularLegsItem() {
         super(EquipmentSlot.LEGS, "modular_legs");
         majorModuleKeys = new String[]{"legs/left", "legs/right", "legs/belt"};
-        minorModuleKeys = new String[0];
+        minorModuleKeys = new String[]{"legs/extra"};
         requiredModules = new String[]{"legs/left", "legs/right", "legs/belt"};
     }
 
@@ -24,8 +24,11 @@ public class ModularLegsItem extends ModularArmorItem {
 
     @Override
     public GuiModuleOffsets getMajorGuiOffsets(ItemStack itemStack) {
-        //return new GuiModuleOffsets( -14, 0,4, 0);
         return new GuiModuleOffsets(-21, 13, 11, 13, 4, -2);
     }
 
+    @Override
+    public GuiModuleOffsets getMinorGuiOffsets(ItemStack itemStack) {
+        return new GuiModuleOffsets(-14,0);
+    }
 }
