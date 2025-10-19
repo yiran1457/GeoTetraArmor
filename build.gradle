@@ -128,8 +128,8 @@ dependencies {
     modImplementation("curse.maven:ibe-editor-256822:4994072")
     //tetra
     modImplementation("curse.maven:mutil-351914:6418901")
-    modImplementation("curse.maven:tetra-289712:6418957")
     modImplementation("curse.maven:geckolib-388172:6920925")
+    modImplementation("curse.maven:tetra-289712:6418957")
 }
 
 // Uncomment the lines below if you wish to configure mixin. The mixin file should be named modid.mixins.json.
