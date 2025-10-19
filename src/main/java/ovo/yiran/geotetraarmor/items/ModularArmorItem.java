@@ -52,16 +52,16 @@ public class ModularArmorItem extends ItemModularHandheld implements GeoItem, Eq
         return false;
     }
 
-    public void applyDamage(int amount, ItemStack itemStack, @Nullable LivingEntity responsibleEntity,int slot) {
+    public void applyDamage(int amount, ItemStack itemStack, @Nullable LivingEntity responsibleEntity, int slot) {
         int damage = itemStack.getDamageValue();
         int maxDamage = itemStack.getMaxDamage();
         if (!this.isBroken(damage, maxDamage)) {
             int reducedAmount = this.getReducedDamage(amount, itemStack, responsibleEntity);
-            itemStack.hurtAndBreak(amount, responsibleEntity, (player) -> player.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR,slot)));
+            itemStack.hurtAndBreak(amount, responsibleEntity, (player) -> player.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR, slot)));
             //打磨
-            tickProgression(responsibleEntity,itemStack,reducedAmount);
+            tickProgression(responsibleEntity, itemStack, reducedAmount);
             if (this.isBroken(damage + reducedAmount, maxDamage) && !responsibleEntity.level().isClientSide) {
-                itemStack.hurtAndBreak(amount, responsibleEntity, (player) -> player.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR,slot)));
+                itemStack.hurtAndBreak(amount, responsibleEntity, (player) -> player.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR, slot)));
                 //不知道为什么，没声音
                 responsibleEntity.playSound(SoundEvents.SHIELD_BREAK, 1.0F, 1.0F);
             }
@@ -77,7 +77,7 @@ public class ModularArmorItem extends ItemModularHandheld implements GeoItem, Eq
 
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack itemStack) {
-        if (slot == this.slot) {
+        if (slot == this.slot && !isBroken(itemStack)) {
             return getAttributeModifiersCached(itemStack);
         }
         return AttributeHelper.emptyMap;
