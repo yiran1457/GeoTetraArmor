@@ -1,14 +1,21 @@
 {
+  "tetra.holo.craft.head": "头盔",
   "tetra.slot.head/base": "头盔",
   "tetra.slot.head/extra": "附件",
+
+  "tetra.holo.craft.chest": "胸甲",
   "tetra.slot.chest/extra": "附件",
   "tetra.slot.chest/base": "底甲",
   "tetra.slot.chest/left": "左肩甲",
   "tetra.slot.chest/right": "右肩甲",
+
+  "tetra.holo.craft.legs": "裤子",
   "tetra.slot.legs/extra": "附件",
   "tetra.slot.legs/left": "左腿甲",
   "tetra.slot.legs/right": "右腿甲",
   "tetra.slot.legs/belt": "腰带",
+
+  "tetra.holo.craft.feet": "鞋子",
   "tetra.slot.feet/extra": "附件",
   "tetra.slot.feet/left": "左鞋子",
   "tetra.slot.feet/right": "右鞋子",

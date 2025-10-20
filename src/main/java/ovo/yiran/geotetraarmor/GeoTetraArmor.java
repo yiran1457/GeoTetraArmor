@@ -5,28 +5,20 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
-import ovo.yiran.geotetraarmor.items.*;
-import se.mickelus.tetra.items.modular.IModularItem;
-
-import java.util.HashMap;
-import java.util.Map;
+import ovo.yiran.geotetraarmor.compat.CompatHandler;
+import ovo.yiran.geotetraarmor.items.ModularChestItem;
+import ovo.yiran.geotetraarmor.items.ModularFeetItem;
+import ovo.yiran.geotetraarmor.items.ModularHeadItem;
+import ovo.yiran.geotetraarmor.items.ModularLegsItem;
 
 @Mod(GeoTetraArmor.MODID)
 @SuppressWarnings("removal")
@@ -53,6 +45,7 @@ public class GeoTetraArmor {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ITEMS.register(modEventBus);
        // CREATIVE_MODE_TABS.register(modEventBus);
+        modEventBus.register(CompatHandler.class);
         modEventBus.addListener(this::onBuildCreativeModeTab);
     }
 
