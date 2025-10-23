@@ -1,7 +1,9 @@
 {
   "replace": true,
   "type": "tetra:basic_major_module",
-  "slots": ["chest/left"],
+  "slots": [
+    "chest/left"
+  ],
   "improvements": [
     "tetra:armor/shared/"
   ],
@@ -39,16 +41,20 @@
           "minecraft:generic.armor": 0.5,
           "minecraft:generic.armor_toughness": 0.5
         },
-        "primaryEffects":{},
+        "primaryEffects": {},
         "secondaryEffects": {},
         "tertiaryEffects": {},
         "durability": 0.3,
         "integrity": 1,
         "magicCapacity": 1,
         "glyph": {
-          "textureX": 16
+          "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
+          "textureX": 0,
+          "textureY": 0
         },
-        "availableTextures": [ "left" ],
+        "availableTextures": [
+          "left"
+        ],
         "models": [
           {
             "type": "gecko",

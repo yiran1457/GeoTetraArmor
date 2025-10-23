@@ -6,11 +6,18 @@
     "materialSlotCount": 1,
     "displayType": "major",
     "glyph": {
-        "textureX": 16
+        "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
+        "textureX": 176,
+        "textureY": 0
     },
     "outcomes": [
         {
-            "materials": ["tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/"],
+            "materials": [
+                "tetra:wood/",
+                "tetra:gem/",
+                "tetra:metal/",
+                "tetra:bone/"
+            ],
             "moduleKey": "armor/head/base/heavy",
             "moduleVariant": "heavy_head_base/"
         }

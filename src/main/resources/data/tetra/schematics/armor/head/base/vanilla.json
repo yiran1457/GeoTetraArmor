@@ -6,7 +6,9 @@
     "materialSlotCount": 1,
     "displayType": "major",
     "glyph": {
-        "textureX": 16
+        "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
+        "textureX": 176,
+        "textureY": 0
     },
     "outcomes": [
         {

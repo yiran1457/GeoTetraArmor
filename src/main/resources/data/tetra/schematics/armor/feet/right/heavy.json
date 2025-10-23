@@ -1,14 +1,23 @@
 {
     "replace": true,
-    "slots": ["feet/right"],
+    "slots": [
+        "feet/right"
+    ],
     "materialSlotCount": 1,
     "displayType": "major",
     "glyph": {
-        "textureX": 16
+        "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
+        "textureX": 208,
+        "textureY": 0
     },
     "outcomes": [
         {
-            "materials": ["tetra:wood/","tetra:gem/", "tetra:metal/", "tetra:bone/"],
+            "materials": [
+                "tetra:wood/",
+                "tetra:gem/",
+                "tetra:metal/",
+                "tetra:bone/"
+            ],
             "moduleKey": "armor/feet/right/heavy",
             "moduleVariant": "heavy_feet_right/"
         }

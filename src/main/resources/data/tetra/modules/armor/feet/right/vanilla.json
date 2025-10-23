@@ -46,7 +46,9 @@
         "integrity": 1,
         "magicCapacity": 1,
         "glyph": {
-          "textureX": 16
+          "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
+          "textureX": 208,
+          "textureY": 0
         },
         "availableTextures": [ "right" ],
         "models": [

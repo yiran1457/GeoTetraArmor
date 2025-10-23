@@ -37,14 +37,12 @@
         "integrity": 1,
         "magicCapacity": 1,
         "glyph": {
-          "textureX": 16
+          "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
+          "textureX": 80,
+          "textureY": 0
         },
         "availableTextures": [ "left" ],
         "models": [
-          {
-            "type": "gecko",
-            "location": "geotetraarmor:item/armor/vanilla/"
-          },
           {
             "type": "gecko",
             "location": "geotetraarmor:item/armor/heavy/"
