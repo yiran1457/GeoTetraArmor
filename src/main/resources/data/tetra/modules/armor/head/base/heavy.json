@@ -19,7 +19,7 @@
       "integrity": 1,
       "contexts": ["armor", "armor_head"],
       "attributes": {
-        "**minecraft:movement_speed": -0.05
+        "**minecraft:generic.movement_speed": -0.05
       },
       "extract": {
         "primaryAttributes": {
