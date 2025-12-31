@@ -125,15 +125,15 @@ repositories {
     }
 }
 dependencies {
-    String materialContextLib = "blank:Tetra Material Overhaul-6.9.0:0.0.3"
+    String materialContextLib = "blank:Tetra Material Overhaul-6.9.0:0.0.4"
     modImplementation(materialContextLib)
     jarJar(materialContextLib)
 
     runtimeOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.0-rc.2"))
     runtimeOnly("io.github.llamalad7:mixinextras-forge:0.2.0-rc.2")
     //other
-    modImplementation("curse.maven:jei-238222:6600311")
     modImplementation("curse.maven:modern-ui-352491:6199942")
+    modImplementation("curse.maven:jei-238222:6600311")
     modImplementation("curse.maven:ibe-editor-256822:4994072")
     //compat
     modImplementation("curse.maven:extraholopage-1301292:7021781")

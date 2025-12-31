@@ -20,6 +20,12 @@
   "tetra.slot.feet/left": "Left Boot",
   "tetra.slot.feet/right": "Right Boot",
 
+
+  "tetra.stats.gta:fly": "Ability to fly in the air",
+  "tetra.stats.gta:fly.tooltip": "Allows you to defy gravity and fly freely through the air.",
+  "tetra.variant.extra_wing_dragon/common": "Dragon Wings",
+
+
   "tetra/schematic/armor/head/base/vanilla.description": "A vanilla-style helmet.",
   "tetra/schematic/armor/head/base/vanilla.slot1": "Helmet Material",
   "tetra/schematic/armor/head/base/vanilla.name": "Vanilla Helmet",

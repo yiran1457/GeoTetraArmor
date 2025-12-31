@@ -58,6 +58,7 @@ public class GeoTetraArmor {
             item.commonInit(TetraMod.packetHandler);
         }
         ITEM.clear();
+        ITEM = null;
     }
 
     public void onBuildCreativeModeTab(BuildCreativeModeTabContentsEvent event) {

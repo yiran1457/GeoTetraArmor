@@ -1,0 +1,22 @@
+{
+  "replace": true,
+  "type": "tetra:basic_module",
+  "slots": ["chest/extra"],
+  "variants": [
+    {
+      "key": "extra_wing_dragon/common",
+      "durability": 7,
+      "contexts": ["wing"],
+      "models": [
+        {
+          "type": "gecko",
+          "renderLayer": "LOWEST",
+          "location": "geotetraarmor:item/armor/wing/dragon"
+        }
+      ],
+      "effects": {
+        "gta:fly": 1
+      }
+    }
+  ]
+}
