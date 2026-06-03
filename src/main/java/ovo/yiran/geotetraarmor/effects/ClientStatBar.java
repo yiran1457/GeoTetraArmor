@@ -16,14 +16,16 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 public class ClientStatBar {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
-        addStatBar(
-                new GuiStatBar(
-                        0, 0, 59,
-                        "tetra.stats." + FlyEffect.FLY.getKey(),
-                        0, 1, false, false, false, new StatGetterEffectLevel(FlyEffect.FLY),
-                        LabelGetterBasic.integerLabel, new TooltipGetterNone("tetra.stats." + FlyEffect.FLY.getKey() + ".tooltip")
-                )
-        );
+        event.enqueueWork(()->{
+            addStatBar(
+                    new GuiStatBar(
+                            0, 0, 59,
+                            "tetra.stats." + FlyEffect.FLY.getKey(),
+                            0, 1, false, false, false, new StatGetterEffectLevel(FlyEffect.FLY),
+                            LabelGetterBasic.integerLabel, new TooltipGetterNone("tetra.stats." + FlyEffect.FLY.getKey() + ".tooltip")
+                    )
+            );
+        });
     }
 
     public static void addStatBar(GuiStatBar bar) {

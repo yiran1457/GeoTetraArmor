@@ -21,9 +21,13 @@
   "tetra.slot.feet/right": "右鞋子",
 
 
-  "tetra.stats.gta:fly": "在空中飞翔程度的能力",
+  "tetra.stats.gta:fly": "在空中飞行程度的能力",
   "tetra.stats.gta:fly.tooltip": "能够摆脱重力，在空中自由地飞行。",
-  "tetra.variant.extra_wing_dragon/common": "龙翼",
+  "tetra.variant.dragon_wing": "龙翼",
+  "tetra.module.armor/chest/extra/dragon_wing.description": "使用龙筋制作的双翼，获得在空中飞行程度的能力",
+  "tetra/schematic/armor/chest/extra/dragon_wing.name": "龙翼",
+  "tetra/schematic/armor/chest/extra/dragon_wing.slot1": "材料",
+  "tetra/schematic/armor/chest/extra/dragon_wing.description": "使用龙筋制作双翼，获得在空中飞行程度的能力",
 
 
   "tetra/schematic/armor/head/base/vanilla.description": "香草风格的头盔",

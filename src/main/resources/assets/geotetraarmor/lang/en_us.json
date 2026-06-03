@@ -23,7 +23,11 @@
 
   "tetra.stats.gta:fly": "Ability to fly in the air",
   "tetra.stats.gta:fly.tooltip": "Allows you to defy gravity and fly freely through the air.",
-  "tetra.variant.extra_wing_dragon/common": "Dragon Wings",
+  "tetra.variant.dragon_wing": "Dragon Wings",
+  "tetra.module.armor/chest/extra/dragon_wing.description": "Wings crafted from dragon sinew, granting the ability to fly in the air",
+  "tetra/schematic/armor/chest/extra/dragon_wing.name": "Dragon Wings",
+  "tetra/schematic/armor/chest/extra/dragon_wing.slot1": "Material",
+  "tetra/schematic/armor/chest/extra/dragon_wing.description": "Craft wings using dragon sinew to gain the ability to fly in the air",
 
 
   "tetra/schematic/armor/head/base/vanilla.description": "A vanilla-style helmet.",

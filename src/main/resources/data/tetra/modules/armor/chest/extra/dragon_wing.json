@@ -4,7 +4,7 @@
   "slots": ["chest/extra"],
   "variants": [
     {
-      "key": "extra_wing_dragon/common",
+      "key": "dragon_wing",
       "durability": 7,
       "contexts": ["wing"],
       "models": [
