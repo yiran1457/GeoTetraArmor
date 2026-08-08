@@ -2,6 +2,7 @@ package ovo.yiran.geotetraarmor.effects;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -14,22 +15,26 @@ public class FlyEffect {
     public static final ItemEffect FLY = ItemEffect.get("gta:fly");
 
     @SubscribeEvent
-    public static void onEquipmentChang(LivingEquipmentChangeEvent event) {
+    public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
         if (event.getSlot() == EquipmentSlot.MAINHAND || event.getSlot() == EquipmentSlot.OFFHAND) return;
-        if (!(event.getEntity() instanceof ServerPlayer)) return;
-        boolean canFly = event.getEntity().getPersistentData().getBoolean("gta:fly");
-        if (ArmorEffectUtil.getArmorTotalEffectLevel(event.getEntity(), FLY) > 0) {
-            ((ServerPlayer) event.getEntity()).getAbilities().mayfly = true;
-            ((ServerPlayer) event.getEntity()).onUpdateAbilities();
+        LivingEntity entity = event.getEntity();
+        if (!(entity instanceof ServerPlayer player)) return;
+        boolean canFly = entity.getPersistentData().getBoolean("gta:fly");
+        if (ArmorEffectUtil.getArmorTotalEffectLevel(entity, FLY) > 0) {
+            player.getAbilities().mayfly = true;
+            player.onUpdateAbilities();
             if (!canFly) {
-                event.getEntity().getPersistentData().putBoolean("gta:fly", true);
+                entity.getPersistentData().putBoolean("gta:fly", true);
             }
-        }else {
+        } else {
             if (canFly) {
-                event.getEntity().getPersistentData().putBoolean("gta:fly", false);
-                ((ServerPlayer) event.getEntity()).getAbilities().mayfly = false;
-                ((ServerPlayer) event.getEntity()).getAbilities().flying = false;
-                ((ServerPlayer) event.getEntity()).onUpdateAbilities();
+                entity.getPersistentData().putBoolean("gta:fly", false);
+                // 不覆盖创造模式或其他 mod 提供的飞行能力
+                if (!player.getAbilities().instabuild) {
+                    player.getAbilities().mayfly = false;
+                }
+                player.getAbilities().flying = false;
+                player.onUpdateAbilities();
             }
         }
     }

@@ -30,11 +30,6 @@ public class ModularHeadItem extends ModularArmorItem {
     }
 
     @Override
-    public GuiModuleOffsets getMajorGuiOffsets(ItemStack itemStack) {
-        return super.getMajorGuiOffsets(itemStack);
-    }
-
-    @Override
     public GuiModuleOffsets getMinorGuiOffsets(ItemStack itemStack) {
         return new GuiModuleOffsets(-16, 2);
     }

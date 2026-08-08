@@ -6,9 +6,9 @@ import se.mickelus.tetra.module.data.ModuleModel;
 import software.bernie.geckolib.model.GeoModel;
 
 public class ModularArmorModel<T extends ModularArmorItem> extends GeoModel<T> {
-    private ResourceLocation modelPath;
-    private ResourceLocation texturePath;
-    private ResourceLocation animationsPath;
+    private final ResourceLocation modelPath;
+    private final ResourceLocation texturePath;
+    private final ResourceLocation animationsPath;
 
     public ModularArmorModel(ModuleModel moduleModel) {
         modelPath = buildFormattedModelPath(moduleModel.location);
@@ -31,15 +31,15 @@ public class ModularArmorModel<T extends ModularArmorItem> extends GeoModel<T> {
         return animationsPath;
     }
 
-    public ResourceLocation buildFormattedModelPath(ResourceLocation basePath) {
+    public static ResourceLocation buildFormattedModelPath(ResourceLocation basePath) {
         return new ResourceLocation(basePath.getNamespace(), "geo/" + basePath.getPath() + ".geo.json");
     }
 
-    public ResourceLocation buildFormattedAnimationPath(ResourceLocation basePath) {
+    public static ResourceLocation buildFormattedAnimationPath(ResourceLocation basePath) {
         return new ResourceLocation(basePath.getNamespace(), "animations/" + basePath.getPath() + ".animation.json");
     }
 
-    public ResourceLocation buildFormattedTexturePath(ResourceLocation basePath) {
+    public static ResourceLocation buildFormattedTexturePath(ResourceLocation basePath) {
         return new ResourceLocation(basePath.getNamespace(), "textures/" + basePath.getPath() + ".png");
     }
 

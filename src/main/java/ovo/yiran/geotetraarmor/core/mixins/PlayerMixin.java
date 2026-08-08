@@ -2,7 +2,6 @@ package ovo.yiran.geotetraarmor.core.mixins;
 
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -33,9 +32,9 @@ public class PlayerMixin {
             for (int i = 0; i < 4; i++) {
                 ItemStack itemstack = this.inventory.armor.get(i);
                 if ((!source.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof ModularArmorItem armorItem) {
-                    ModularItemDamageEvent event = new ModularItemDamageEvent((LivingEntity) (Object)this,itemstack,(int)amount);
+                    ModularItemDamageEvent event = new ModularItemDamageEvent((Player) (Object) this, itemstack, (int) amount);
                     MinecraftForge.EVENT_BUS.post(event);
-                    armorItem.applyDamage(event.getAmount(),itemstack,this.inventory.player,i);
+                    armorItem.applyDamage(event.getAmount(), itemstack, (Player) (Object) this, i);
                 }
             }
         }

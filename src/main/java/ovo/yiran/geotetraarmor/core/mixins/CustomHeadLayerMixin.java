@@ -23,6 +23,8 @@ public abstract class CustomHeadLayerMixin<T extends LivingEntity, M extends Ent
     }
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V",at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/layers/CustomHeadLayer;translateToHead(Lcom/mojang/blaze3d/vertex/PoseStack;Z)V"), cancellable = true)
     private void onRender(PoseStack poseStack, MultiBufferSource buffer, int packedLight, T livingEntity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci){
+        // 依赖 vanilla 1.20.1 CustomHeadLayer.render 的结构：在 translateToHead 前恰好有一次 pushPose（方法开头），
+        // 此处 popPose 一次抵消该 push 并取消后续渲染，避免矩阵栈失衡。升级 MC 版本时需重新核对 push/pop 次数。
         ItemStack itemstack = livingEntity.getItemBySlot(EquipmentSlot.HEAD);
         if(itemstack.getItem() instanceof ModularArmorItem){
             poseStack.popPose();

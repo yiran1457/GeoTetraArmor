@@ -43,7 +43,6 @@ public class ModularGeoArmorRenderer extends GeoArmorRenderer<ModularArmorItem> 
             this.leftLeg = this.getLeftLegBone();
             this.rightBoot = this.getRightBootBone();
             this.leftBoot = this.getLeftBootBone();
-            this.leftBoot = this.getLeftBootBone();
             this.belt = this.getBeltBone();
         }
     }

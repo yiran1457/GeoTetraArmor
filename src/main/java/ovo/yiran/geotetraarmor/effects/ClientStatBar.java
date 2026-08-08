@@ -14,15 +14,17 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 
 @Mod.EventBusSubscriber(modid = GeoTetraArmor.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientStatBar {
+    private static final String FLY_STAT_KEY = "tetra.stats." + FlyEffect.FLY.getKey();
+
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(()->{
             addStatBar(
                     new GuiStatBar(
                             0, 0, 59,
-                            "tetra.stats." + FlyEffect.FLY.getKey(),
+                            FLY_STAT_KEY,
                             0, 1, false, false, false, new StatGetterEffectLevel(FlyEffect.FLY),
-                            LabelGetterBasic.integerLabel, new TooltipGetterNone("tetra.stats." + FlyEffect.FLY.getKey() + ".tooltip")
+                            LabelGetterBasic.integerLabel, new TooltipGetterNone(FLY_STAT_KEY + ".tooltip")
                     )
             );
         });
