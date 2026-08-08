@@ -15,7 +15,7 @@
         "wearable": 2,
         "breakable": 2
       },
-      "durability": 7,
+      "durability": 9,
       "integrity": 1,
       "contexts": ["armor", "armor_head"],
       "attributes": {
@@ -23,16 +23,16 @@
       },
       "extract": {
         "primaryAttributes": {
-          "minecraft:generic.armor": 0.3093,
-          "minecraft:generic.armor_toughness": 0.5046
+          "minecraft:generic.armor": 1.28,
+          "minecraft:generic.armor_toughness": 1.95
         },
         "secondaryAttributes": {
-          "minecraft:generic.armor": -0.0423,
-          "minecraft:generic.armor_toughness": -1.3848
+          "minecraft:generic.armor": -0.6,
+          "minecraft:generic.armor_toughness": -1.8
         },
         "tertiaryAttributes": {
-          "minecraft:generic.armor": 0.5381,
-          "minecraft:generic.armor_toughness": 1.2463
+          "minecraft:generic.armor": 0.1,
+          "minecraft:generic.armor_toughness": 0.35
         },
         "primaryEffects":{},
         "secondaryEffects": {},

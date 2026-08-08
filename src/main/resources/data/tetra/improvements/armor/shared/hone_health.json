@@ -1,0 +1,56 @@
+[
+    {
+        "key": "armor_hone/health",
+        "level": 1,
+        "aspects": {
+            "honed": 1
+        },
+        "attributes": {
+            "minecraft:generic.max_health": 1.0
+        }
+    },
+    {
+        "key": "armor_hone/health",
+        "level": 2,
+        "integrity": -1,
+        "aspects": {
+            "honed": 2
+        },
+        "attributes": {
+            "minecraft:generic.max_health": 2.0
+        }
+    },
+    {
+        "key": "armor_hone/health",
+        "level": 3,
+        "integrity": -1,
+        "aspects": {
+            "honed": 3
+        },
+        "attributes": {
+            "minecraft:generic.max_health": 3.0
+        }
+    },
+    {
+        "key": "armor_hone/health",
+        "level": 4,
+        "integrity": -2,
+        "aspects": {
+            "honed": 4
+        },
+        "attributes": {
+            "minecraft:generic.max_health": 4.0
+        }
+    },
+    {
+        "key": "armor_hone/health",
+        "level": 5,
+        "integrity": -2,
+        "aspects": {
+            "honed": 5
+        },
+        "attributes": {
+            "minecraft:generic.max_health": 5.0
+        }
+    }
+]

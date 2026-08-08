@@ -7,59 +7,86 @@
   ],
   "variants": [
     {
-      "materials": [
-        "tetra:wood/",
-        "tetra:gem/",
-        "tetra:metal/",
-        "tetra:bone/",
-        "tetra:fabric/",
-        "tetra:fibre/",
-        "tetra:skin/",
-        "tetra:scale/"
-      ],
+      "materials": [ "tetra:metal/" ],
       "key": "vanilla_legs_right/",
-      "aspects": {
-        "armor": 2,
-        "armor_legs": 2,
-        "wearable": 2,
-        "breakable": 2
-      },
+      "aspects": { "armor": 2, "armor_legs": 2, "wearable": 2, "breakable": 2 },
       "durability": 7,
       "integrity": 1,
       "contexts": ["armor", "armor_legs"],
       "extract": {
-        "primaryAttributes": {
-          "minecraft:generic.armor": 0.02578,
-          "minecraft:generic.armor_toughness": 0.0339
-        },
-        "secondaryAttributes": {
-          "minecraft:generic.armor": -0.00353,
-          "minecraft:generic.armor_toughness": -0.2678
-        },
-        "tertiaryAttributes": {
-          "minecraft:generic.armor": 0.37818,
-          "minecraft:generic.armor_toughness": 0.3661
-        },
-        "primaryEffects":{},
-        "secondaryEffects": {},
-        "tertiaryEffects": {},
-        "durability": 0.3,
-        "integrity": 1,
-        "magicCapacity": 1,
-        "glyph": {
-          "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
-          "textureX": 96,
-          "textureY": 0
-        },
+        "primaryAttributes": { "minecraft:generic.armor": 0.29, "minecraft:generic.armor_toughness": 0.062 },
+        "secondaryAttributes": { "minecraft:generic.armor": 0.035, "minecraft:generic.armor_toughness": 0.012 },
+        "tertiaryAttributes": { "minecraft:generic.armor": 0.02, "minecraft:generic.armor_toughness": 0.006 },
+        "primaryEffects": {}, "secondaryEffects": {}, "tertiaryEffects": {},
+        "durability": 0.3, "integrity": 1, "magicCapacity": 1,
+        "glyph": { "textureLocation": "geotetraarmor:textures/gui/gui_gta.png", "textureX": 96, "textureY": 0 },
         "availableTextures": [ "right" ],
         "models": [
-          {
-            "type": "gecko",
-            "location": "geotetraarmor:item/armor/vanilla/"
-          },
-          {
-            "location": "geotetraarmor:item/module/armor/legs/"
-          }
+          { "type": "gecko", "location": "geotetraarmor:item/armor/vanilla/" },
+          { "location": "geotetraarmor:item/module/armor/legs/" }
+        ]
+      }
+    },
+    {
+      "materials": [ "tetra:gem/" ],
+      "key": "vanilla_legs_right/",
+      "aspects": { "armor": 2, "armor_legs": 2, "wearable": 2, "breakable": 2 },
+      "durability": 7,
+      "integrity": 1,
+      "contexts": ["armor", "armor_legs"],
+      "extract": {
+        "primaryAttributes": { "minecraft:generic.armor": 0.29, "minecraft:generic.armor_toughness": 0.031 },
+        "secondaryAttributes": { "minecraft:generic.armor": 0.035, "minecraft:generic.armor_toughness": 0.006 },
+        "tertiaryAttributes": { "minecraft:generic.armor": 0.02, "minecraft:generic.armor_toughness": 0.003 },
+        "primaryEffects": {}, "secondaryEffects": {}, "tertiaryEffects": {},
+        "durability": 0.3, "integrity": 1, "magicCapacity": 1,
+        "glyph": { "textureLocation": "geotetraarmor:textures/gui/gui_gta.png", "textureX": 96, "textureY": 0 },
+        "availableTextures": [ "right" ],
+        "models": [
+          { "type": "gecko", "location": "geotetraarmor:item/armor/vanilla/" },
+          { "location": "geotetraarmor:item/module/armor/legs/" }
+        ]
+      }
+    },
+    {
+      "materials": [ "tetra:wood/", "tetra:bone/" ],
+      "key": "vanilla_legs_right/",
+      "aspects": { "armor": 2, "armor_legs": 2, "wearable": 2, "breakable": 2 },
+      "durability": 7,
+      "integrity": 1,
+      "contexts": ["armor", "armor_legs"],
+      "extract": {
+        "primaryAttributes": { "minecraft:generic.armor": 0.203, "minecraft:generic.armor_toughness": 0.037 },
+        "secondaryAttributes": { "minecraft:generic.armor": 0.025, "minecraft:generic.armor_toughness": 0.007 },
+        "tertiaryAttributes": { "minecraft:generic.armor": 0.014, "minecraft:generic.armor_toughness": 0.004 },
+        "primaryEffects": {}, "secondaryEffects": {}, "tertiaryEffects": {},
+        "durability": 0.3, "integrity": 1, "magicCapacity": 1,
+        "glyph": { "textureLocation": "geotetraarmor:textures/gui/gui_gta.png", "textureX": 96, "textureY": 0 },
+        "availableTextures": [ "right" ],
+        "models": [
+          { "type": "gecko", "location": "geotetraarmor:item/armor/vanilla/" },
+          { "location": "geotetraarmor:item/module/armor/legs/" }
+        ]
+      }
+    },
+    {
+      "materials": [ "tetra:fabric/", "tetra:fibre/", "tetra:skin/", "tetra:scale/" ],
+      "key": "vanilla_legs_right/",
+      "aspects": { "armor": 2, "armor_legs": 2, "wearable": 2, "breakable": 2 },
+      "durability": 7,
+      "integrity": 1,
+      "contexts": ["armor", "armor_legs"],
+      "extract": {
+        "primaryAttributes": { "minecraft:generic.armor": 0.145, "minecraft:generic.armor_toughness": 0.019 },
+        "secondaryAttributes": { "minecraft:generic.armor": 0.018, "minecraft:generic.armor_toughness": 0.004 },
+        "tertiaryAttributes": { "minecraft:generic.armor": 0.01, "minecraft:generic.armor_toughness": 0.002 },
+        "primaryEffects": {}, "secondaryEffects": {}, "tertiaryEffects": {},
+        "durability": 0.3, "integrity": 1, "magicCapacity": 1,
+        "glyph": { "textureLocation": "geotetraarmor:textures/gui/gui_gta.png", "textureX": 96, "textureY": 0 },
+        "availableTextures": [ "right" ],
+        "models": [
+          { "type": "gecko", "location": "geotetraarmor:item/armor/vanilla/" },
+          { "location": "geotetraarmor:item/module/armor/legs/" }
         ]
       }
     }

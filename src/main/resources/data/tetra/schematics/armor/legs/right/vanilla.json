@@ -1,29 +1,14 @@
 {
-    "replace": true,
-    "slots": [
-        "legs/right"
-    ],
-    "materialSlotCount": 1,
-    "displayType": "major",
-    "glyph": {
-        "textureLocation": "geotetraarmor:textures/gui/gui_gta.png",
-        "textureX": 96,
-        "textureY": 0
-    },
-    "outcomes": [
-        {
-            "materials": [
-                "tetra:wood/",
-                "tetra:gem/",
-                "tetra:metal/",
-                "tetra:bone/",
-                "tetra:fabric/",
-                "tetra:fibre/",
-                "tetra:skin/",
-                "tetra:scale/"
-            ],
-            "moduleKey": "armor/legs/right/vanilla",
-            "moduleVariant": "vanilla_legs_right/"
-        }
-    ]
+  "replace": true,
+  "slots": ["legs/right"],
+  "materialSlotCount": 1,
+  "displayType": "major",
+  "glyph": { "textureLocation": "geotetraarmor:textures/gui/gui_gta.png", "textureX": 96, "textureY": 0 },
+  "outcomes": [
+    {
+      "materials": ["tetra:wood/", "tetra:gem/", "tetra:metal/", "tetra:bone/", "tetra:fabric/", "tetra:fibre/", "tetra:skin/", "tetra:scale/"],
+      "moduleKey": "armor/legs/right/vanilla",
+      "moduleVariant": "vanilla_legs_right/"
+    }
+  ]
 }

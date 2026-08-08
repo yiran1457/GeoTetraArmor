@@ -11,11 +11,7 @@
         "tetra:wood/",
         "tetra:gem/",
         "tetra:metal/",
-        "tetra:bone/",
-        "tetra:fabric/",
-        "tetra:fibre/",
-        "tetra:skin/",
-        "tetra:scale/"
+        "tetra:bone/"
       ],
       "key": "heavy_legs_belt/",
       "aspects": {
@@ -24,7 +20,7 @@
         "wearable": 2,
         "breakable": 2
       },
-      "durability": 7,
+      "durability": 9,
       "integrity": 1,
       "contexts": ["armor", "armor_legs"],
       "attributes": {
@@ -32,16 +28,16 @@
       },
       "extract": {
         "primaryAttributes": {
-          "minecraft:generic.armor": 0.0619,
-          "minecraft:generic.armor_toughness": 0.0814
+          "minecraft:generic.armor": 0.095,
+          "minecraft:generic.armor_toughness": 0.12
         },
         "secondaryAttributes": {
-          "minecraft:generic.armor": -0.0085,
-          "minecraft:generic.armor_toughness": -0.6427
+          "minecraft:generic.armor": -0.015,
+          "minecraft:generic.armor_toughness": -0.65
         },
         "tertiaryAttributes": {
-          "minecraft:generic.armor": 0.9076,
-          "minecraft:generic.armor_toughness": 0.8785
+          "minecraft:generic.armor": 0.91,
+          "minecraft:generic.armor_toughness": 0.88
         },
         "primaryEffects":{},
         "secondaryEffects": {},

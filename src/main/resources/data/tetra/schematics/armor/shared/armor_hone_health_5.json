@@ -1,0 +1,22 @@
+{
+  "replace": true,
+  "localizationKey": "armor/shared/armor_hone_health_5",
+  "slots": ["head/base", "chest/base", "chest/left", "chest/right", "legs/belt", "legs/left", "legs/right", "feet/left", "feet/right"],
+  "keySuffixes": ["_head_base", "_chest_base", "_chest_left", "_chest_right", "_legs_belt", "_legs_left", "_legs_right", "_feet_left", "_feet_right"],
+  "materialSlotCount": 0,
+  "hone": true,
+  "rarity": "hone",
+  "displayType": "major",
+  "glyph": { "textureX": 16, "textureY": 240 },
+  "requirement": {
+    "type": "tetra:improvement",
+    "improvement": "armor_hone/health",
+    "level": 4
+  },
+  "outcomes": [
+    {
+      "requiredTools": { "hammer_dig": "minecraft:gold" },
+      "improvements": { "armor_hone/health": 5 }
+    }
+  ]
+}

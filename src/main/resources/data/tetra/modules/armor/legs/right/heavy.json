@@ -15,7 +15,7 @@
         "wearable": 2,
         "breakable": 2
       },
-      "durability": 7,
+      "durability": 9,
       "integrity": 1,
       "contexts": ["armor", "armor_legs"],
       "attributes": {
@@ -23,16 +23,16 @@
       },
       "extract": {
         "primaryAttributes": {
-          "minecraft:generic.armor": 0.0310,
-          "minecraft:generic.armor_toughness": 0.0407
+          "minecraft:generic.armor": 0.048,
+          "minecraft:generic.armor_toughness": 0.06
         },
         "secondaryAttributes": {
-          "minecraft:generic.armor": -0.0043,
-          "minecraft:generic.armor_toughness": -0.3214
+          "minecraft:generic.armor": -0.007,
+          "minecraft:generic.armor_toughness": -0.32
         },
         "tertiaryAttributes": {
-          "minecraft:generic.armor": 0.4538,
-          "minecraft:generic.armor_toughness": 0.4393
+          "minecraft:generic.armor": 0.455,
+          "minecraft:generic.armor_toughness": 0.44
         },
         "primaryEffects":{},
         "secondaryEffects": {},

@@ -22,7 +22,7 @@
         "wearable": 2,
         "breakable": 2
       },
-      "durability": 7,
+      "durability": 9,
       "integrity": 1,
       "contexts": ["armor", "armor_chest"],
       "attributes": {
@@ -30,16 +30,16 @@
       },
       "extract": {
         "primaryAttributes": {
-          "minecraft:generic.armor": 0.3714,
-          "minecraft:generic.armor_toughness": 0.0857
+          "minecraft:generic.armor": 0.28,
+          "minecraft:generic.armor_toughness": 0.1
         },
         "secondaryAttributes": {
-          "minecraft:generic.armor": -0.1611,
-          "minecraft:generic.armor_toughness": -0.6557
+          "minecraft:generic.armor": -0.17,
+          "minecraft:generic.armor_toughness": -0.52
         },
         "tertiaryAttributes": {
-          "minecraft:generic.armor": 0.9164,
-          "minecraft:generic.armor_toughness": 0.9038
+          "minecraft:generic.armor": 0.92,
+          "minecraft:generic.armor_toughness": 0.76
         },
         "primaryEffects": {},
         "secondaryEffects": {},
