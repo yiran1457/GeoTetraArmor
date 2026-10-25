@@ -1,5 +1,8 @@
 package ovo.yiran.geotetraarmor.effects;
 
+//? if >=6.10 {
+/*import net.minecraftforge.common.crafting.conditions.ICondition;
+*///?}
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,15 +21,18 @@ public class ClientStatBar {
 
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
-        event.enqueueWork(()->{
-            addStatBar(
-                    new GuiStatBar(
-                            0, 0, 59,
-                            FLY_STAT_KEY,
-                            0, 1, false, false, false, new StatGetterEffectLevel(FlyEffect.FLY),
-                            LabelGetterBasic.integerLabel, new TooltipGetterNone(FLY_STAT_KEY + ".tooltip")
-                    )
+        event.enqueueWork(() -> {
+            GuiStatBar bar = new GuiStatBar(
+                    0, 0, 59,
+                    FLY_STAT_KEY,
+                    0, 1, false, false, false, new StatGetterEffectLevel(FlyEffect.FLY),
+                    LabelGetterBasic.integerLabel, new TooltipGetterNone(FLY_STAT_KEY + ".tooltip"),
+                    //? if > 6.10 {
+                    /*new ICondition[0],
+                    *///?}
+                    false
             );
+            addStatBar(bar);
         });
     }
 

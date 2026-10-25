@@ -2,9 +2,9 @@ package ovo.yiran.geotetraarmor.model;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import ovo.yiran.geotetraarmor.items.ModularArmorItem;
-import se.mickelus.tetra.module.data.ModuleModel;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.core.object.Color;
@@ -17,9 +17,10 @@ import java.util.Objects;
 public class ModularGeoArmorRenderer extends GeoArmorRenderer<ModularArmorItem> {
     public Color color;
     protected GeoBone belt = null;
-    public ModularGeoArmorRenderer(ModuleModel moduleModel) {
-        super(new ModularArmorModel<>(moduleModel));
-        color = new Color((moduleModel.tint & 0x00FFFFFF) | 0xFF000000);
+
+    public ModularGeoArmorRenderer(ResourceLocation modelLocation, int tint) {
+        super(new ModularArmorModel<>(modelLocation));
+        color = new Color((tint & 0x00FFFFFF) | 0xFF000000);
     }
 
     @Override
@@ -29,7 +30,7 @@ public class ModularGeoArmorRenderer extends GeoArmorRenderer<ModularArmorItem> 
 
     @Nullable
     public GeoBone getBeltBone() {
-        return  this.model.getBone("armorBelt").orElse(null);
+        return this.model.getBone("armorBelt").orElse(null);
     }
 
     protected void grabRelevantBones(BakedGeoModel bakedModel) {
@@ -54,7 +55,7 @@ public class ModularGeoArmorRenderer extends GeoArmorRenderer<ModularArmorItem> 
         if (currentPart != model.hat && currentPart != model.head) {
             if (currentPart == model.body) {
                 bone = this.body;
-                if(this.belt!=null) {
+                if (this.belt != null) {
                     this.belt.setHidden(false);
                 }
             } else if (currentPart == model.leftArm) {
@@ -87,7 +88,7 @@ public class ModularGeoArmorRenderer extends GeoArmorRenderer<ModularArmorItem> 
             ModelPart bodyPart = baseModel.body;
             RenderUtils.matchModelPartRot(bodyPart, this.body);
             this.body.updatePosition(bodyPart.x, -bodyPart.y, bodyPart.z);
-            if(this.belt != null) {
+            if (this.belt != null) {
                 RenderUtils.matchModelPartRot(bodyPart, this.belt);
                 this.belt.updatePosition(bodyPart.x, -bodyPart.y, bodyPart.z);
             }

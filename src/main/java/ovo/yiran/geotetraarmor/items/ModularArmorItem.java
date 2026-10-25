@@ -2,11 +2,7 @@ package ovo.yiran.geotetraarmor.items;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
+import com.google.common.collect.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,9 +12,12 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.DigDurabilityEnchantment;
 import org.slf4j.Logger;
 import ovo.yiran.geotetraarmor.GeoTetraArmor;
 import ovo.yiran.geotetraarmor.model.ModularGeoArmorRenderer;
+import ovo.yiran.geotetraarmor.model.ModuleModelAccess;
+import se.mickelus.tetra.effect.ItemEffect;
 import se.mickelus.tetra.items.modular.ItemModularHandheld;
 import se.mickelus.tetra.module.ItemModule;
 import se.mickelus.tetra.module.SchematicRegistry;
@@ -33,25 +32,25 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+//? if <6.10 {
+//?} else {
+/*import se.mickelus.tetra.module.model.IModuleModel;
+ */
+//?}
+
 public abstract class ModularArmorItem extends ItemModularHandheld implements GeoItem, Equipable {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final Predicate<ModuleModel> IS_GECKO_MODEL = moduleModel -> moduleModel.type.startsWith("gecko");
+    private static final Predicate<Object> IS_GECKO_MODEL = ModuleModelAccess::isGecko;
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final EquipmentSlot slot;
-    private final Cache<String, ImmutableList<ModuleModel>> modelCache;
+    private final Cache<String, ImmutableList<Object>> modelCache;
     private final Cache<String, List<ModularGeoArmorRenderer>> rendererCache;
 
     public ModularArmorItem(EquipmentSlot slot, String repairName) {
@@ -71,15 +70,29 @@ public abstract class ModularArmorItem extends ItemModularHandheld implements Ge
     public void applyDamage(int amount, ItemStack itemStack, @Nullable LivingEntity responsibleEntity, int slot) {
         int damage = itemStack.getDamageValue();
         int maxDamage = itemStack.getMaxDamage();
-        if (!this.isBroken(damage, maxDamage)) {
-            int reducedAmount = this.getReducedDamage(amount, itemStack, responsibleEntity);
+        if (!this.isBroken(damage, maxDamage) && responsibleEntity != null) {
+            int reducedAmount = reduceDamage(amount, itemStack, responsibleEntity);
             itemStack.hurtAndBreak(reducedAmount, responsibleEntity, (player) -> player.broadcastBreakEvent(EquipmentSlot.byTypeAndIndex(EquipmentSlot.Type.ARMOR, slot)));
             //打磨
             tickProgression(responsibleEntity, itemStack, reducedAmount);
-            if (this.isBroken(damage + reducedAmount, maxDamage) && responsibleEntity != null && !responsibleEntity.level().isClientSide) {
+            if (this.isBroken(damage + reducedAmount, maxDamage) && !responsibleEntity.level().isClientSide) {
                 responsibleEntity.playSound(SoundEvents.SHIELD_BREAK, 1.0F, 1.0F);
             }
         }
+    }
+
+    private int reduceDamage(int amount, ItemStack itemStack, @Nullable LivingEntity entity) {
+        if (amount <= 0 || entity == null) {
+            return amount;
+        }
+        int unbreaking = this.getEffectLevel(itemStack, ItemEffect.unbreaking);
+        int reduced = 0;
+        for (int i = 0; i < amount; i++) {
+            if (DigDurabilityEnchantment.shouldIgnoreDurabilityDrop(itemStack, unbreaking, entity.level().getRandom())) {
+                reduced++;
+            }
+        }
+        return amount - reduced;
     }
 
     @Override
@@ -134,7 +147,7 @@ public abstract class ModularArmorItem extends ItemModularHandheld implements Ge
     }
 
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "Fly/Idle", 0, (state) -> {
+        controllers.add(new AnimationController<>(this, "Fly/Idle", 0, (state) -> {
             for (Object value : state.getExtraData().values()) {
                 if (value instanceof Player player) {
                     if (player.getAbilities().flying) {
@@ -150,16 +163,37 @@ public abstract class ModularArmorItem extends ItemModularHandheld implements Ge
         return this.cache;
     }
 
+    //? if <6.10 {
     @Override
     public ImmutableList<ModuleModel> getModels(ItemStack itemStack, @Nullable LivingEntity entity) {
-        return filterModels(getModelsCached(itemStack, entity), IS_GECKO_MODEL.negate());
+        return filterModels(computeModelsCached(itemStack, entity), IS_GECKO_MODEL.negate())
+                .stream()
+                .map(ModuleModel.class::cast)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), ImmutableList::copyOf));
+    }
+    //?} else {
+    /*@Override
+    public ImmutableList<IModuleModel> getModels(ItemStack itemStack, @Nullable LivingEntity entity) {
+        return filterModels(computeModelsCached(itemStack, entity), IS_GECKO_MODEL.negate())
+                .stream()
+                .map(IModuleModel.class::cast)
+                .collect(Collectors.collectingAndThen(Collectors.toList(), ImmutableList::copyOf));
+    }
+    *///?}
+
+    public List<ModularGeoArmorRenderer> geoArmorRenderers(ItemStack itemStack, @Nullable LivingEntity entity) {
+        try {
+            return rendererCache.get(this.getModelCacheKey(itemStack, entity), () ->
+                    filterModels(computeModelsCached(itemStack, entity), IS_GECKO_MODEL).stream()
+                            .map(model -> new ModularGeoArmorRenderer(ModuleModelAccess.location(model), ModuleModelAccess.tint(model)))
+                            .collect(Collectors.toList()));
+        } catch (ExecutionException e) {
+            LOGGER.error("Failed to create geo armor renderers for {}", itemStack, e);
+            return ImmutableList.of();
+        }
     }
 
-    public ImmutableList<ModuleModel> getGeckoModels(ItemStack itemStack, @Nullable LivingEntity entity) {
-        return filterModels(getModelsCached(itemStack, entity), IS_GECKO_MODEL);
-    }
-
-    private ImmutableList<ModuleModel> getModelsCached(ItemStack itemStack, @Nullable LivingEntity entity) {
+    private ImmutableList<Object> computeModelsCached(ItemStack itemStack, @Nullable LivingEntity entity) {
         try {
             return modelCache.get(this.getModelCacheKey(itemStack, entity), () -> computeModels(itemStack));
         } catch (ExecutionException e) {
@@ -168,29 +202,20 @@ public abstract class ModularArmorItem extends ItemModularHandheld implements Ge
         }
     }
 
-    private ImmutableList<ModuleModel> computeModels(ItemStack itemStack) {
+    private ImmutableList<Object> computeModels(ItemStack itemStack) {
         return this.getAllModules(itemStack)
                 .stream()
                 .sorted(Comparator.comparing(ItemModule::getRenderLayer))
                 .flatMap((itemModule) -> Arrays.stream(itemModule.getModels(itemStack)))
                 .filter(Objects::nonNull)
-                .sorted(Comparator.comparing(ModuleModel::getRenderLayer))
+                .sorted(Comparator.comparing(ModuleModelAccess::renderLayer))
                 .collect(Collectors.collectingAndThen(Collectors.toList(), ImmutableList::copyOf));
     }
 
-    private static ImmutableList<ModuleModel> filterModels(ImmutableList<ModuleModel> models, Predicate<ModuleModel> filter) {
+    private static ImmutableList<Object> filterModels(ImmutableList<Object> models, Predicate<Object> filter) {
         return models.stream()
                 .filter(filter)
                 .collect(Collectors.collectingAndThen(Collectors.toList(), ImmutableList::copyOf));
-    }
-
-    public List<ModularGeoArmorRenderer> geoArmorRenderers(ItemStack itemStack, @Nullable LivingEntity entity) {
-        try {
-            return rendererCache.get(this.getModelCacheKey(itemStack, entity), () -> this.getGeckoModels(itemStack, entity).stream().map(ModularGeoArmorRenderer::new).collect(Collectors.toList()));
-        } catch (ExecutionException e) {
-            LOGGER.error("Failed to create geo armor renderers for {}", itemStack, e);
-            return ImmutableList.of();
-        }
     }
 
     @Override

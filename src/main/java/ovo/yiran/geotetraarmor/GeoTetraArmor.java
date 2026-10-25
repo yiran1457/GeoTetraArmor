@@ -4,7 +4,6 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +21,7 @@ import ovo.yiran.geotetraarmor.items.ModularChestItem;
 import ovo.yiran.geotetraarmor.items.ModularFeetItem;
 import ovo.yiran.geotetraarmor.items.ModularHeadItem;
 import ovo.yiran.geotetraarmor.items.ModularLegsItem;
+import ovo.yiran.geotetraarmor.model.GeckoModuleModels;
 import se.mickelus.tetra.TetraMod;
 import se.mickelus.tetra.items.InitializableItem;
 
@@ -35,7 +35,6 @@ public class GeoTetraArmor {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static List<InitializableItem> ITEM = new ArrayList<>();
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     public static final RegistryObject<Item> HEAD = ITEMS.register("head", ModularHeadItem::new);
     public static final RegistryObject<Item> FEET = ITEMS.register("feet", ModularFeetItem::new);
     public static final RegistryObject<Item> CHEST = ITEMS.register("chest", ModularChestItem::new);
@@ -54,6 +53,8 @@ public class GeoTetraArmor {
     }
 
     public void onCommonSetup(final FMLCommonSetupEvent event) {
+        // Must happen before module data is deserialized: Tetra 6.10+ rejects unregistered model types ("gecko").
+        GeckoModuleModels.register();
         for (InitializableItem item : ITEM) {
             item.commonInit(TetraMod.packetHandler);
         }

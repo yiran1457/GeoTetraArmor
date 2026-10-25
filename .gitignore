@@ -25,3 +25,8 @@ run-data
 
 repo
 /opencode.json
+
+# stonecutter per-node build outputs
+versions/*/build
+versions/*/run
+versions/*/src
